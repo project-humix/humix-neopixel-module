@@ -24,8 +24,10 @@ humix.on('connection', function(humixSensorModule){
     console.log('Communication with humix-sense is now ready. hsm:'+hsm);
 
     hsm.on('feel', function(data){
-
-        if(data === 'positive'){
+        
+        console.log('data:'+data);
+        var command = JSON.parse(data);
+        if(command.feel === 'positive'){
 
             console.log("feel positive");
 
@@ -34,8 +36,8 @@ humix.on('connection', function(humixSensorModule){
             }
 
             ws281x.render(pixelData);
-            
-        }else if(data === 'negative'){
+           
+        }else if(command.feel === 'negative'){
 
             console.log("feel negative");
 
@@ -45,6 +47,7 @@ humix.on('connection', function(humixSensorModule){
             }
 
             ws281x.render(pixelData);
+
         }
     })
     
