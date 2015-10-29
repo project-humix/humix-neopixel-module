@@ -15,6 +15,7 @@ Start Humix Sense (for more detail, see https://github.com/project-humix/humix-n
 
 `
 sudo npm install
+
 sudo node neopixel
 `
 

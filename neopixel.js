@@ -107,11 +107,10 @@ var blink = 4;
 humix.on('connection', function(humixSensorModule){
     hsm = humixSensorModule;
     
-    console.log('Communication with humix-sense is now ready. hsm:'+hsm);
+    console.log('Communication with humix-sense is now ready.' );
 
     hsm.on('feel', function(data){
         
-        console.log('data:'+data);
         var command = JSON.parse(data);
         if(command.feel === 'positive'){
 
@@ -138,7 +137,7 @@ humix.on('connection', function(humixSensorModule){
     })
 
     hsm.on('mode',function(data){
-
+     
         var command = JSON.parse(data);
         if(command.mode === 'clock'){
             // enable clock mode
@@ -152,7 +151,6 @@ humix.on('connection', function(humixSensorModule){
             },5000);
 
         }else if (command.mode === 'robot'){
-
             if(clockModeID){
                 clearInterval(clockModeID);
             };
